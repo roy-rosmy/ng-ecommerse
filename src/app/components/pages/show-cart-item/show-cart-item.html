@@ -1,0 +1,31 @@
+<div class="d-grid custom-grid">
+    <div class="d-flex align-items-center gap-4">
+        <img [src]="item().product.imageUrl" class="img-size rounded-3 object-fit-cover">
+        <div>
+            <div class="text-dark fs-5 fw-semibold">
+                {{ item().product.name }}
+            </div>
+            <div class="text-secondary fs-5">
+                ${{ item().product.price }}
+            </div>
+        </div>
+    </div>
+    
+    <app-qty-selector [quantity]="item().quantity" (qtyUpdated)="store.setItemQuantity({productId : item().product.id, quantity: $event})"></app-qty-selector>
+
+    <div class="d-flex flex-column align-items-center">
+        <div class="text-right font-semibold text-lg">
+        {{ total() }}
+        </div>
+       <div class="d-flex me-n3">
+            <button matIconButton (click)="store.moveToWishlist(item().product)">
+                <mat-icon>favorite</mat-icon>
+            </button>
+            <button matIconButton class="text-danger" (click)="store.removeFromCart(item().product)">
+                <mat-icon>delete</mat-icon>
+            </button>
+       </div>
+
+    </div>
+
+</div>

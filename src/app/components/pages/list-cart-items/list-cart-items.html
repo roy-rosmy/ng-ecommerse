@@ -1,0 +1,11 @@
+<div appViewPanel>
+    <h2 class="fs-2 fw-bold mb-4">
+        Cart Items ({{ store.cartItemCount() }})
+    </h2>
+
+    <div class="d-flex flex-column gap-4">
+        @for (item of store.cartItems(); track item.product.id) {
+            <app-show-cart-item [item]="item"></app-show-cart-item>
+        }
+    </div>
+</div>

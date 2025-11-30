@@ -1,0 +1,33 @@
+ <div class="position-relative bg-white pointer rounded-4 shadow overflow-hidden d-flex flex-column h-100">
+    <img [src]="product().imageUrl" style="height: 40%;" class="w-100 object-fit-cover rounded-top img-h"/>
+    <!-- <button 
+    class="position-absolute z-3 rounded-circle bg-white border-0 shadow d-flex align-items-center justify-content-center cursor-pointer hover-scale"
+    [class]="isInWishlist() ? 'text-danger' : 'text-secondary'"
+    matIconButton
+    (click)="toggleWishlist(product())"
+    >
+    <mat-icon>{{isInWishlist()? 'favorite' : 'favorite_border'}}</mat-icon>
+    </button> -->
+    <ng-content></ng-content>
+    <div class="p-5 d-flex flex-column flex-grow-1">
+        <h3 class="fs-5 fw-semibold text-dark mb-2 lh-sm">
+            {{ product().name }}
+        </h3>
+        <p class="fs-6 text-secondary mb-4 flex-grow-1 lh-lg">{{product().description}}</p>
+
+        <!-- add rating component -->
+
+        <div class="fs-6 fw-medium mb-4">
+            {{ product().inStock ? 'In Stock' : 'Out of Stock' }}
+        </div>
+        <div class="d-flex align-items-center justify-content-between mt-auto">
+            <span class="fs-3 fw-bold text-dark">
+                ${{ product().price }}
+            </span>
+            <button matButton="filled" class="d-flex align-items-center gap-2" (click)="store.addToCart(product(), 1)">
+                <mat-icon>shopping_cart</mat-icon>
+                Add to Cart
+            </button>
+        </div>
+    </div>
+</div>

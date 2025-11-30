@@ -1,0 +1,12 @@
+<button 
+    class="position-absolute z-3 rounded-circle bg-white border-0 shadow d-flex align-items-center justify-content-center cursor-pointer hover-scale"
+    [class]="isInWishlist() ? 'text-danger' : 'text-secondary'"
+    matIconButton
+    (click)="toggleWishlist(product())"
+    >
+     @if (isInWishlist() && !deleteProduct()) {
+        <mat-icon class="text-secondary">delete</mat-icon>
+    } @else {
+        <mat-icon>{{isInWishlist()? 'favorite' : 'favorite_border'}}</mat-icon>
+    }
+</button>
