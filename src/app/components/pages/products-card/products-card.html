@@ -1,4 +1,4 @@
- <div class="position-relative bg-white pointer rounded-4 shadow overflow-hidden d-flex flex-column h-100">
+ <div class="position-relative bg-white pointer rounded-4 shadow overflow-hidden d-flex flex-column" style="height: 550px;">
     <img [src]="product().imageUrl" style="height: 40%;" class="w-100 object-fit-cover rounded-top img-h"/>
     <!-- <button 
     class="position-absolute z-3 rounded-circle bg-white border-0 shadow d-flex align-items-center justify-content-center cursor-pointer hover-scale"
@@ -9,18 +9,18 @@
     <mat-icon>{{isInWishlist()? 'favorite' : 'favorite_border'}}</mat-icon>
     </button> -->
     <ng-content></ng-content>
-    <div class="p-5 d-flex flex-column flex-grow-1">
-        <h3 class="fs-5 fw-semibold text-dark mb-2 lh-sm">
+    <div class="p-5 d-flex flex-column">
+        <h3 class="fs-5 fw-semibold text-dark mb-2 lh-sm" style="height: 50px; overflow: hidden;">
             {{ product().name }}
         </h3>
-        <p class="fs-6 text-secondary mb-4 flex-grow-1 lh-lg">{{product().description}}</p>
+        <p class="fs-6 text-secondary lh-lg" style="height: 100px; overflow: hidden;">{{product().description}}</p>
 
         <!-- add rating component -->
 
-        <div class="fs-6 fw-medium mb-4">
+        <div class="fs-6 fw-medium mb-2">
             {{ product().inStock ? 'In Stock' : 'Out of Stock' }}
         </div>
-        <div class="d-flex align-items-center justify-content-between mt-auto">
+        <div class="d-flex align-items-center justify-content-between">
             <span class="fs-3 fw-bold text-dark">
                 ${{ product().price }}
             </span>
