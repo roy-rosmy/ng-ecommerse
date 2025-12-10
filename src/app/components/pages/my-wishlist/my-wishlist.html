@@ -11,7 +11,8 @@
                 {{ store.wishlistCount() }} items
             </span>
         </div>
-        <div class="responsive-grid">
+        <!-- <div class="responsive-grid"> -->
+        <div style="width: 30%;">
             @for (product of store.wishlistItems(); track product.id) {
                 <app-products-card [product]="product">
                     <app-toggle-wishlist [product]="product" [deleteProduct]="false"></app-toggle-wishlist>
@@ -27,3 +28,13 @@
         <app-empty-wishlist></app-empty-wishlist>
     }
 </div>
+
+  <!-- <mat-sidenav-content class="bg-light p-4 h-100">
+        <div class="responsive-grid">
+            @for (product of store.filteredProducts(); track product.id) {
+            <app-products-card [product] = "product">
+                 <app-toggle-wishlist [product]="product" [deleteProduct]="true"></app-toggle-wishlist>
+            </app-products-card>
+            }
+        </div>
+    </mat-sidenav-content> -->

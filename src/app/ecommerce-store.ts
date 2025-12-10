@@ -9,7 +9,9 @@ export type EcommerceState = {
     category : string;
     wishlistItems : Product[];
     cartItems : CartItem[];
-}
+} 
+
+// type store=EcommerceState;
 
 export const EcommerceStore = signalStore(
     {
@@ -73,10 +75,10 @@ export const EcommerceStore = signalStore(
         category: "electronics"
         },
         {
-        id: "p005",
-        name: "4K Ultra HD Monitor",
-        description: "27-inch 4K display with HDR support, ultra-thin bezels.",
-        price: 349.99,
+        id: "p006",
+        name: "Laptop",
+        description: "Ultra-thin bezels.",
+        price: 350,
         imageUrl: "https://cdn.pixabay.com/photo/2021/11/16/15/35/technology-6801345_1280.jpg",
         rating: 4.5,
         reviewCount: 643,

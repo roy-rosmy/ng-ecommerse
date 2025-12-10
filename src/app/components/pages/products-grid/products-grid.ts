@@ -94,7 +94,7 @@ export default class ProductsGrid {
 
   // }
 
-  categories = signal<string[]>(['all' , 'electronics', 'home', 'clothing', 'accessories']);
+  categories = signal<string[]>(['all' , 'electronics', 'home']);
 
   constructor() {
     this.store.setCategory(this.category);
