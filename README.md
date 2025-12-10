@@ -2,58 +2,48 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.10.
 
-## Development server
+A demo e-commerce web application built with **Angular 20**, showcasing core frontend features such as product listing, cart management, wishlist, and category filtering.
 
-To start a local development server, run:
+## Features Implemented
+
+- **Homepage:** Lists all products with images, price and description.  
+- **Category Filter:** Sidebar to select a category and filter products dynamically.  
+- **Wishlist:** Add/remove products from wishlist, view wishlist items, and move items to cart.  
+- **Cart Management:** Add items to cart, update item quantity, remove items, add all items to cart from wishlist and view total price.  
+- **Reactive State Management:** Built using **NgRx Signals** with `signalStore`, `Immer` and `computed` state for reactive UI updates.  
+- **Notifications:** Success messages using `Toaster` service for user actions like adding/removing items.  
+
+**Note:** Sign-in and Sign-up functionality is not implemented yet.
+
+---
+
+## Tech Stack
+
+- Angular 20  
+- TypeScript & JavaScript (ES6+)  
+- RxJS Signals for state management  
+- SCSS for styling  
+- Immer for immutable state updates  
+- Toaster for notifications  
+
+---
+
+## Getting Started
+
+Follow these steps to run the project locally:
 
 ```bash
+# Clone the repository
+git clone https://github.com/roy-rosmy/ng-ecommerse
+
+# Navigate to project folder
+cd ng-ecommerse
+
+# Install dependencies
+npm install
+
+# Start the development server
 ng serve
-```
+
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
