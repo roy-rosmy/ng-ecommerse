@@ -1,8 +1,10 @@
 <div class="d-flex align-items-center gap-2">
-    <button matIconButton routerLink="wishlist" [matBadge]="store.wishlistCount()" [matBadgeHidden]="store.wishlistCount()===0">
+    <!-- <button matIconButton routerLink="wishlist" [matBadge]="store.wishlistCount()" [matBadgeHidden]="store.wishlistCount()===0"> -->
+    <button matIconButton routerLink="wishlist" [matBadge]="store.wishlistCount() || null">
         <mat-icon>favorite</mat-icon>
     </button>
-    <button matIconButton routerLink="cart" [matBadge]="store.cartItemCount()" [matBadgeHidden]="store.cartItemCount()===0">
+    <!-- <button matIconButton routerLink="cart" [matBadge]="store.cartItemCount()" [matBadgeHidden]="store.cartItemCount()===0"> -->
+    <button matIconButton routerLink="cart" [matBadge]="store.cartItemCount() || null">
         <mat-icon>shopping_cart</mat-icon>
     </button>
     <button matButton>

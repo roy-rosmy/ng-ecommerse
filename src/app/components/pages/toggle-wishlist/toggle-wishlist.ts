@@ -13,7 +13,7 @@ import { MatIconButton } from '@angular/material/button';
 export class ToggleWishlist {
   product = input.required<Product>();
   store = inject(EcommerceStore);
-  deleteProduct = input<boolean>(false);
+  deleteProduct = input<boolean>();
 
   isInWishlist = computed(() => this.store.wishlistItems().find(p => p.id === this.product().id));
 

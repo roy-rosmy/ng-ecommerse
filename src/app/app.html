@@ -338,7 +338,15 @@
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<app-header class="position-relative" style="z-index: 10;"/>
+<!-- <app-header class="position-relative" style="z-index: 10;"/>
 <div  style="height: calc(100% - 64px);" class="overflow-auto bg-light">
   <router-outlet />
+</div> -->
+
+<div class="d-flex flex-column h-100">
+  <app-header style="z-index: 10;"/>
+  <div class="flex-grow-1 overflow-auto ">
+    <router-outlet />
+  </div>
 </div>
+

@@ -1,8 +1,5 @@
 .responsive-grid {
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
-  justify-content: center; /* centers columns when fewer fit */
-  max-width: 1200px; /* optional: keep content narrow like product grid */
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1rem; /* spacing between cards */
 }

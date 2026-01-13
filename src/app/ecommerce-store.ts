@@ -96,6 +96,7 @@ export const EcommerceStore = signalStore(
             return products().filter(p => p.category === category().toLowerCase())}),
         wishlistCount : computed(()=> wishlistItems().length),
         cartItemCount : computed(()=> cartItems().reduce((acc, item)=> acc + item.quantity, 0))
+        //reduce loops through the array and combines all items into a single value,(start counting from zero)
     })),
     withMethods((store, toaster = inject(Toaster)) => ({
         setCategory: signalMethod<string>((category:string)=>{
@@ -119,7 +120,7 @@ export const EcommerceStore = signalStore(
         clearWishlist(){
             patchState(store, {wishlistItems : []});
         },
-        addToCart: (product : Product, quantity : 1)=>{
+        addToCart: (product : Product, quantity : number)=>{
             const existingItemIndex = store.cartItems().findIndex(i=>i.product.id === product.id);
 
             const updatedCartItems = produce(store.cartItems(), (draft)=>{
@@ -154,6 +155,13 @@ export const EcommerceStore = signalStore(
         },
         moveToWishlist: (product : Product)=>{
             const updatedCartItems = store.cartItems().filter(p=> p.product.id !== product.id);
+            /*const updatedCartItems = [];
+            for (const p of store.cartItems()) {
+            if (p.product.id !== product.id) {
+                updatedCartItems.push(p);
+            }
+            }*/
+
             const updatedWishlistItems = produce(store.wishlistItems(), (draft)=>{
                 if(!draft.find(p=> p.id === product.id)){
                     draft.push(product);
