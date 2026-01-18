@@ -1,0 +1,52 @@
+<div class="small rounded-3 bg-light px-2 py-1 d-inline-block mb-2">
+  {{ product().category | titlecase }}
+</div>
+<h1 class="fs-3 fw-extrabold mb-3">
+  {{ product().name }}
+</h1>
+<p class="fs-2 fw-extrabold mb-2">
+  ${{ product().price }}
+</p>
+<app-stock-status [inStock]="product().inStock"></app-stock-status>
+<p class="fw-semibold mb-2 mt-2">Description</p>
+<p class="text-secondary border-bottom pb-4">
+  {{ product().description }}
+</p>
+<div class="d-flex align-items-center gap-2 mb-3 pt-4">
+    <span class="fw-semibold">Quantity:</span>
+    <app-qty-selector [quantity]="quantity()" (qtyUpdated)="quantity.set($event)"/>
+</div>
+
+<div class="d-flex gap-4 mb-4 border-bottom pb-4">
+  <button matButton="filled" class="d-flex align-items-center gap-2" (click)="store.addToCart(product(), quantity())" [disabled]="!product().inStock">
+    <mat-icon>shopping_cart</mat-icon>
+    {{ product().inStock ? 'Add to Cart' : 'Out of Stock' }} 
+  </button>
+
+  <button matIconButton type="button" (click)="toggleFavorite(product())">
+    <mat-icon [class.text-danger]="isFavorite()">
+      {{ isFavorite() ? 'favorite' : 'favorite_border' }}
+    </mat-icon>
+  </button>
+
+  <button matIconButton>
+    <mat-icon>share</mat-icon>
+  </button>
+</div>
+
+<div class="pt-4 d-flex flex-column gap-2 text-secondary small">
+  <div class="d-flex align-items-center gap-2">
+    <mat-icon class="small fs-5 me-2">local_shipping</mat-icon>
+    <span>Free shipping on orders over $50</span>
+  </div>
+
+  <div class="d-flex align-items-center gap-2">
+    <mat-icon class="small fs-5 me-2">autorenew</mat-icon>
+    <span>30-day return policy</span>
+  </div>
+
+  <div class="d-flex align-items-center gap-2">
+    <mat-icon class="small fs-5 me-2">shield</mat-icon>
+    <span>2-year warranty included</span>
+  </div>
+</div>

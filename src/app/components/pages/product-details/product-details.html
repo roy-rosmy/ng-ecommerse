@@ -1,0 +1,20 @@
+<div class="mx-auto py-4" style="max-width: 1200px;">
+  <app-back-button [navigateTo]="backRoute()" class="mb-4">
+    Continue Shopping
+  </app-back-button>
+
+  @if (store.selectedProduct(); as product) {
+    <div class="d-flex gap-4 mb-4">
+      <img
+        [src]="product.imageUrl"
+        class="rounded-3 object-fit-cover"
+        style="width: 500px; height: 550px;"
+        alt="Product image"
+      />
+
+      <div class="flex-grow-1">
+        <app-product-info [product]="product"></app-product-info>
+      </div>
+    </div>
+  }
+</div>

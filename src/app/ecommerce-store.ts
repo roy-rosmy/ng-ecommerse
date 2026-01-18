@@ -9,6 +9,7 @@ export type EcommerceState = {
     category : string;
     wishlistItems : Product[];
     cartItems : CartItem[];
+    selectedProductId : string | undefined;
 } 
 
 // type store=EcommerceState;
@@ -38,7 +39,7 @@ export const EcommerceStore = signalStore(
         imageUrl: "https://cdn.pixabay.com/photo/2017/08/07/03/52/laptop-2599499_1280.jpg",
         rating: 4.4,
         reviewCount: 512,
-        inStock: true,
+        inStock: false,
         category: "electronics"
         },
         {
@@ -88,19 +89,25 @@ export const EcommerceStore = signalStore(
         ],
         category : 'all',
         wishlistItems : [],
-        cartItems : []
+        cartItems : [],
+        selectedProductId : undefined
     } as EcommerceState),
-    withComputed(({ category, products, wishlistItems, cartItems }) => ({
+    withComputed(({ category, products, wishlistItems, cartItems, selectedProductId }) => ({
         filteredProducts : computed(() => {
             if (category() === 'all') return products();
             return products().filter(p => p.category === category().toLowerCase())}),
         wishlistCount : computed(()=> wishlistItems().length),
-        cartItemCount : computed(()=> cartItems().reduce((acc, item)=> acc + item.quantity, 0))
+        cartItemCount : computed(()=> cartItems().reduce((acc, item)=> acc + item.quantity, 0)),
         //reduce loops through the array and combines all items into a single value,(start counting from zero)
+        
+        selectedProduct : computed(()=> products().find((p)=> p.id === selectedProductId()))
     })),
     withMethods((store, toaster = inject(Toaster)) => ({
         setCategory: signalMethod<string>((category:string)=>{
             patchState(store, {category})
+        }),
+        setProductId : signalMethod<string>((productId:string)=>{
+            patchState(store, { selectedProductId : productId })
         }),
          addToWishlist: (product : Product)=>{
             const updatedWishlistItems = produce(store.wishlistItems(), (draft)=>{

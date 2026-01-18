@@ -14,9 +14,14 @@ export class ToggleWishlist {
   product = input.required<Product>();
   store = inject(EcommerceStore);
   deleteProduct = input<boolean>();
-
-  isInWishlist = computed(() => this.store.wishlistItems().find(p => p.id === this.product().id));
-
+  
+  isInWishlist = computed(() => this.store.wishlistItems().some(p => p.id === this.product().id));
+  ngOnInit(){
+    console.log("product",this.product().id);
+    
+    console.log("isInWishlist",this.isInWishlist());
+    
+  }
   toggleWishlist(product : Product){
     if(this.isInWishlist()){
       this.store.removeFromWishlist(product);

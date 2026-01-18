@@ -7,8 +7,12 @@ export const routes: Routes = [
         redirectTo : 'products/all'
     },
     {
-        path : 'products/:category' , 
+        path : 'products/:category', 
         loadComponent : () => import('./components/pages/products-grid/products-grid')
+    },
+    {
+        path : 'product/:productId', 
+        loadComponent : () => import('./components/pages/product-details/product-details')
     },
     {
         path : 'wishlist',

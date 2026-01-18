@@ -1,5 +1,5 @@
  <div class="position-relative bg-white pointer rounded-4 shadow overflow-hidden d-flex flex-column" style="height: 550px;">
-    <img [src]="product().imageUrl" style="height: 40%;" class="w-100 object-fit-cover rounded-top img-h"/>
+    <img [src]="product().imageUrl" style="height: 40%;" class="w-100 object-fit-cover rounded-top img-h" [routerLink]="['/product',product().id]"/>
     <!-- <button 
     class="position-absolute z-3 rounded-circle bg-white border-0 shadow d-flex align-items-center justify-content-center cursor-pointer hover-scale"
     [class]="isInWishlist() ? 'text-danger' : 'text-secondary'"
@@ -9,7 +9,7 @@
     <mat-icon>{{isInWishlist()? 'favorite' : 'favorite_border'}}</mat-icon>
     </button> -->
     <ng-content></ng-content>
-    <div class="p-5 d-flex flex-column">
+    <div class="p-5 d-flex flex-column" [routerLink]="['/product',product().id]">
         <h3 class="fs-5 fw-semibold text-dark mb-2 lh-sm" style="height: 50px; overflow: hidden;">
             {{ product().name }}
         </h3>
