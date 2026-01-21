@@ -10,11 +10,13 @@
         class="rounded-3 object-fit-cover"
         style="width: 500px; height: 550px;"
         alt="Product image"
+        [style.transition-name]="'product-image-' + product.id"
       />
 
       <div class="flex-grow-1">
         <app-product-info [product]="product"></app-product-info>
       </div>
     </div>
+    <app-view-review [product]="product"/>
   }
 </div>

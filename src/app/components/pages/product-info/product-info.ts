@@ -7,10 +7,11 @@ import { ToggleWishlist } from "../toggle-wishlist/toggle-wishlist";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIcon } from "@angular/material/icon";
 import { EcommerceStore } from '../../../ecommerce-store';
+import { StarRating } from "../star-rating/star-rating";
 
 @Component({
   selector: 'app-product-info',
-  imports: [TitleCasePipe, StockStatus, QtySelector, MatButtonModule, MatIcon],
+  imports: [TitleCasePipe, StockStatus, QtySelector, MatButtonModule, MatIcon, StarRating],
   templateUrl: './product-info.html',
   styleUrl: './product-info.scss',
 })

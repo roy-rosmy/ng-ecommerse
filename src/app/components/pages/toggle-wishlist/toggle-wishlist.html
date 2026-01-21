@@ -3,6 +3,8 @@
     [class]="isInWishlist() ? 'text-danger' : 'text-secondary'"
     matIconButton
     (click)="toggleWishlist(product())"
+                    [style.view-transition-name]="'wishlist-button-' + product().id"
+
     >
      @if (isInWishlist() && !deleteProduct()) {
         <mat-icon class="text-secondary">delete</mat-icon>

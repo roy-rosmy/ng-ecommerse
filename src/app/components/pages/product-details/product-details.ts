@@ -2,10 +2,11 @@ import { Component, computed, inject, input } from '@angular/core';
 import { EcommerceStore } from '../../../ecommerce-store';
 import { BackButton } from "../back-button/back-button";
 import { ProductInfo } from "../product-info/product-info";
+import { ViewReview } from "../view-review/view-review";
 
 @Component({
   selector: 'app-product-details',
-  imports: [BackButton, ProductInfo],
+  imports: [BackButton, ProductInfo, ViewReview],
   templateUrl: './product-details.html',
   styleUrl: './product-details.scss',
 })

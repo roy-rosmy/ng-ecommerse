@@ -1,0 +1,16 @@
+<div class="d-flex align-items-center">
+    <div class="d-flex align-items-center me-2">
+        @for (star of startArray(); track $index) {
+            <mat-icon
+            class="fs-5"
+            inline
+            [class] = "star ? 'text-warning' : 'text-secondary'"
+            >
+            star
+            </mat-icon>
+        }
+    </div>
+    <span class="small text-secondary">
+        <ng-content></ng-content>
+    </span>
+</div>

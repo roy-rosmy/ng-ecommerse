@@ -1,6 +1,10 @@
 <div class="d-grid custom-grid">
     <div class="d-flex align-items-center gap-4">
-        <img [src]="item().product.imageUrl" class="img-size rounded-3 object-fit-cover">
+        <img 
+            [src]="item().product.imageUrl" 
+            class="img-size rounded-3 object-fit-cover"
+            [style.view-transition-name]="'product-image-' + item().product.id"
+            />
         <div>
             <div class="text-dark fs-5 fw-semibold">
                 {{ item().product.name }}
